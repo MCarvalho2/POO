@@ -1,0 +1,93 @@
+public class Exec {
+	public static void main(String[] args) {
+		String texto = "Era uma vez, essa outra frase.";
+		Funcoes funcao;
+		
+		funcao = new Funcoes(texto);
+		funcao.Token();
+		funcao.SeparaFrase();
+		funcao.Minuscula();
+
+	}
+}
+
+   
+
+
+
+______________________________________________________________
+
+
+
+
+import java.util.Arrays;
+
+public class Funcoes {
+	private int quantChar;
+	private String texto;
+	private String[] token;
+	
+	public Funcoes(String texto) {
+		this.texto = texto;
+		quantChar = texto.length();		
+	}
+	
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
+	public void Token() {
+		token = texto.split(" |, | ,| \\.| \\.");
+		
+		for(String resultado : texto.split(" |, | ,|\\. | \\.|\\.")) {
+			System.out.println(resultado);
+		}
+	}
+	
+	public void SeparaFrase() {
+		//Guardando o valor token para chama-lo caso precise do array
+		token = texto.split(", | ,|,|\\. | \\.|\\.");	
+		
+		//Printando resultado
+		for(String resultado : texto.split(", | ,|,|\\. | \\.|\\.")) {
+			System.out.println(resultado);
+		}
+	}
+	
+	public void Minuscula() {
+		texto = texto.toLowerCase();
+	}
+	
+	public String getTexto() {
+		return texto;
+	}
+	
+	public String[] getToken() {
+		return token;
+	}
+	
+	public int getTamanho() {
+		return quantChar;
+	}
+	
+	//Sobrescri  o da classe toString
+	public String toString(String texto) {
+		return	("Texto dentro do sistema: " + texto);
+	}
+	
+	//Usei o sobrecarga para facilitar o uso da fun  o
+	public String toString(int texto) {
+		return	("Tamanho: " + texto);
+	}
+	
+	public String toString(String[] texto) {
+		return	("Resultado da separa  o: " + Arrays.toString(texto));
+	}
+}
+
+
+
+
+
+
+

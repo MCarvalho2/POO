@@ -1,0 +1,135 @@
+public class Empresa {
+
+	public static void main(String[] args) {
+		Veiculo veiculo1,veiculo2,veiculo3;
+		Onibus onibus1,onibus2,onibus3;
+		
+		veiculo1 = new Veiculo("DCD-0494", "Toyota", "Corolla", 102020);
+		veiculo2 = new Veiculo("ABC-1234", 458584);
+		veiculo3 = new Veiculo("FFF-2727");
+		
+		System.out.println(veiculo1);
+		System.out.println(veiculo2);
+		System.out.println(veiculo3);
+		
+		onibus1 = new Onibus("GTF-0809", "Volvo", "v30", 102020, 234534, 40);
+		onibus2 = new Onibus("VDF-1425", "Volvo", "v40 etc", 102020);
+	
+		System.out.println(onibus1);
+		System.out.println(onibus2);
+		
+		onibus2.setPassageiros(30);
+		veiculo3.setChassi(52825);
+		
+		System.out.println(onibus1.getPlaca());
+		System.out.println(veiculo2.getChassi());
+		System.out.println(onibus2.getPassageiros());
+		
+		//Coer  o
+		veiculo3 = onibus2; 
+		System.out.println(veiculo3); 
+		onibus3 = (Onibus)veiculo3; 
+		System.out.println(onibus3);
+		
+	}
+}
+
+
+
+
+
+______________________________________________________________
+
+
+
+public class Onibus extends Veiculo{
+	protected int cod_ANTT, passageiros;
+	
+	public Onibus(String placa, String marca, String modelo, int chassi, int cod_ANTT, int passageiros) {
+		super(placa, marca, modelo, chassi);
+		this.cod_ANTT = cod_ANTT;
+		this.passageiros = passageiros;
+	}
+	
+	public Onibus(String placa, String marca, String modelo, int chassi, int cod_ANTT) {
+		super(placa, marca, modelo, chassi);
+		this.cod_ANTT = cod_ANTT;
+	}
+	
+	public Onibus(String placa, String marca, String modelo, int chassi) {
+		super(placa, marca, modelo, chassi);
+	}
+	
+	public void setCod_ANTT(int cod_ANTT) {
+		this.cod_ANTT = cod_ANTT;
+	}
+	public void setPassageiros(int passageiros) {
+		this.passageiros = passageiros;
+	}
+	public int getCod_ANTT() {
+		return cod_ANTT;
+	}
+	public int getPassageiros() {
+		return passageiros;
+	}
+	
+	public String toString() {
+		return super.toString() + " C digo ANTT: " + cod_ANTT + " M ximo de passageiros: " + passageiros;
+	}
+}
+
+
+______________________________________________________________
+
+
+
+public class Veiculo {
+	protected String placa, marca, modelo;
+	protected int chassi;
+	
+	public Veiculo(String placa, String marca, String modelo, int chassi) {
+		this.placa = placa;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.chassi = chassi;
+	}
+	
+	public Veiculo(String placa, int chassi) {
+		this.placa = placa;
+		this.chassi = chassi;
+	}
+	
+	public Veiculo(String placa) {
+		this.placa = placa;
+	}
+	
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public void setChassi(int chassi) {
+		this.chassi = chassi;
+	}
+	
+	public String getPlaca() {
+		return placa;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public String getModelo() {
+		return modelo;
+	}
+	public int getChassi() {
+		return chassi;
+	}
+	
+	public String toString(){
+		return ("Placa: " + placa + " Modelo e marca: " + marca + " " + modelo + " Chassi: " + chassi);
+	}
+}

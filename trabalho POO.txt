@@ -1,0 +1,111 @@
+Questão 1
+ A Programação Orientada a Objetos é baseada em quatro pilares, quatro conceitos
+fundamentais que podem ser aplicáveis à qualquer linguagem que use este paradigma.
+São eles: a) abstração, b) encapsulamento, c) herança; e d) polimorfismo. Escreva
+ao menos um parágrafo como explicação de cada um destes três primeiros conceitos
+e um quarto parágrafo explicando como estes conceitos estão relacionados.
+
+a)Abstração:
+
+É utilizado para definir entidades do mundo real,onde são criadas as classes.
+
+b)Encapsulamento:
+
+É uma tecnica para impedir o acesso do usuario em certas partes do programa, o tornamdo mais seguro e independente;os dois tipos de encapsulamento são getter e setter.
+
+c)Herança:
+
+É o termo usado quando uma classe herda atributos de um outra classe distinta; os dois tipo de herança são public e protect.
+
+ Os termos estão relacionados pois a abstração é a parte inical da programação que o desenvolvimento da class, já o encapsulamento utilizam atributos da class do tipo private onde o acesso de informações é controlado, o metodo setter é usado para alterar as propriedades de um objeto já o getter retornar um valor; a herança está relacionado pois, ela permite re-utilizar os atributos de uma classe em outro não necessitando re escrever o programa novamente.
+
+(a)Conceitue classe e objeto diferenciando estes dois conceitos.
+
+R: Classe: A classe é uma classe que abstrai um conjunto de objetos com características
+similares, ou seja ela é um molde para objetos similares. Ela possui atributos, métodos
+e estado que definirão as diferenças entre os objetos. Define atributos e métodos que
+serão compartilhados por um objeto.
+ Objeto: Um objeto é uma coisa material ou abstrata que pode ser percebida pelos
+sentidos e descrita por meio de suas características, comportamentos e estado atual. É
+a instância de uma classe.
+
+(b)Explique a diferença entre os conceitos de Interface em Java e de classes abstratas.
+
+R: As interfaces são padrões definidos através de contratos ou especificações. A linguagem Java não tem herança múltipla, as interfaces ajudam nessa questão, pois bem se sabe que uma classe pode ser herdada apenas uma vez, mas pode implementar inúmeras interfaces.
+  As classes abstratas servem como “modelo” para outras classes que dela herdem, não podendo ser instanciada por si só, objeto de uma classe abstrata é necessário criar uma classe mais especializada herdando dela e então instanciar essa nova classe.
+
+(c)Quais as diferenças entre sobrecarga e sobrescrição de métodos? Aproveite para explicar os eventuais usos do método toString().
+
+R: Sobrescrição:A sobrescrita está diretamente relacionada com a herança; sobrescrita de métodos consiste basicamente em criar um novo método na classe filha contendo a mesma assinatura e mesmo tipo de retorno do método sobrescrito.
+ Sobrecarga: Consiste basicamente em criar variações de um mesmo método, ou seja, a criação de dois ou mais métodos com nomes totalmente iguais em uma classe; o que permite que usemos o mesmo nome em mais de um método desde que os argumentos sejam diferentes.
+ O metodo toString() retorna uma representação string de um objeto.
+
+Questão 2 
+
+(a)Um código que implemente uma classe chamada Fibo cujo construtor constroi
+um arranjo com os 20 primeiros elementos desta sequência. Esta classe deve ter
+ao menos um método get() para recuperar o valor de um índice da sequência.
+
+R:
+import java.util.Arrays;
+
+public class Fibo {
+    int[] fib;
+
+    public Fibo() {
+        this.fib= new int[20];
+        fib[0]=1;
+        fib[1]=1;
+        for (int i=2; i<20; i++) {
+            fib[i]=fib[i-1]+fib[i-2];
+        }     
+    }
+    
+    public int get(int x) {
+        return (fib[x]);
+    }
+
+    public String toString() {
+        String fibS = Arrays.toString(fib);
+        return fibS;
+    }
+}
+(b)Uma classe chamada TFibo que testa a classe Fibo, ou seja, que use todos os
+seus métodos.
+
+R: 
+public class TFibo {
+
+    public static void main(String[] args) {
+    
+       Fibo y;
+
+        f = new Fibo();
+        System.out.println(y);
+        System.out.println(y.get(19));
+    }
+}
+
+(c)O que são e para que servem os métodos get() e set() numa classe?
+ 
+R: O get e o set são métodos de encapsulamento.
+o Get serve para pegar um determinado valor contido na variavel, já o Set serve para setar um valor em determinada variavel.
+
+(d)Porque não faz sentido um método set() na classe Fibo?
+
+R: Porque o método set serve para setar um valor, ou sejá indicar determinado valor, no caso da classe Fibo é necessario um metodo que pege esse valor e não que indique.
+
+(e)Explique o que são coerção explícita e implícita.
+
+R: Implicitas: São as conversões que ocorrem sem nenhum cast, como por exemplo passar um valor de um tipo menor para dentro de um tipo maior.
+ Explícita: São as conversões feitas por desenvolvedores, utilizando os comandos de cast como: (int), (byte), (double).
+
+ Questão 3
+
+As operações com String são clássicas na área de Processamento de Textos e oferecem
+recursos interessantes para um programador. Escreva uma classe que possa receber
+um texto e realizar as seguintes operações sobre este texto: 
+
+(a)Instanciar um objeto com um texto e marcar num atributo estático a quantidade de caracteres deste mesmo texto.
+
+R: 
